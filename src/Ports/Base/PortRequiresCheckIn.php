@@ -1,9 +1,9 @@
 <?php
 
-namespace jdg223\transportable\Ports\Base;
+namespace Transportable\Ports\Base;
 
-use jdg223\transportable\Ports\Contracts\SecurityCheck;
-use jdg223\transportable\Ports\Contracts\RequiresCheckIn;
+use Transportable\Ports\Contracts\SecurityCheck;
+use Transportable\Ports\Contracts\RequiresCheckIn;
 
 abstract class PortRequiresCheckIn extends Port implements RequiresCheckIn, SecurityCheck
 {
@@ -25,7 +25,8 @@ abstract class PortRequiresCheckIn extends Port implements RequiresCheckIn, Secu
     }
 
     /**
-     * Transport function is modified to include new step.
+     * Transport method is modified
+     * to include new step.
      *
      * @return mixed
      */
@@ -34,6 +35,7 @@ abstract class PortRequiresCheckIn extends Port implements RequiresCheckIn, Secu
         $this->inTransit();
         $this->arrive();
         $this->checkIn();
+        $this->refuel();
         return $this->leave();
     }
 }

@@ -1,6 +1,6 @@
 {
     "name": "jdg223/transportable",
-    "description": "A Framework that allows a single process to be broken up into a bunch of small processes.",
+    "description": "A framework that allows a single process to be broken up into a bunch of small processes.",
     "keywords": ["micro-services", "composer", "package", "pipeline"],
     "type": "framework",
     "license": "Apache-2.0",
@@ -15,7 +15,7 @@
     },
 	"autoload": {
         "psr-4": {
-            "jdg223\\transportable\\": "src/"
+            "Transportable\\": "src/"
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace jdg223\transportable\Ports\Contracts;
+namespace Transportable\Ports\Contracts;
 
 interface SecurityCheck
 {

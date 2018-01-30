@@ -1,15 +1,15 @@
 <?php
 
-namespace jdg223\transportable\Ports\Base;
+namespace Transportable\Ports\Base;
 
-use jdg223\transportable\Transports\Contracts\Port as PortInterface;
-use jdg223\transportable\Passengers\Contracts\PassengerIsTraveling;
-use jdg223\transportable\Transporter\Contracts\Transporter;
+use Transportable\Ports\Contracts\Base\Transports;
+use Transportable\Passengers\Base\Passenger;
+use Transportable\Transporter\Base\Transporter;
 
-abstract class Port implements PortInterface
+abstract class Port implements Transports
 {
     /**
-     * @var PassengerIsTraveling
+     * @var Passenger
      */
     public $passenger;
 
@@ -18,7 +18,7 @@ abstract class Port implements PortInterface
      */
     public $transporter;
 
-    public function __construct(PassengerIsTraveling $passenger, Transporter $transporter)
+    public function __construct(Passenger $passenger, Transporter $transporter)
     {
         $this->passenger = $passenger;
         $this->transporter = $transporter;
@@ -36,11 +36,14 @@ abstract class Port implements PortInterface
         $this->passenger = $this->passenger->arrive();
     }
 
-    public function leave()
+    public function refuel()
     {
         // Connect to service.
-        $this->transporter->readyTransporter();
+        $this->transporter->refuel();
+    }
 
+    public function leave()
+    {
         // Transport data to destination.
         return $this->transporter->sendToDestination($this->passenger);
     }
@@ -49,6 +52,7 @@ abstract class Port implements PortInterface
     {
         $this->inTransit();
         $this->arrive();
+        $this->refuel();
         return $this->leave();
     }
 }
