@@ -9,7 +9,7 @@ interface SecurityCheck
      *
      * @param $passenger
      *
-     * @return mixed
+     * @return boolean
      */
     public function runSecurityCheck($passenger);
 }

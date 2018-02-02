@@ -9,7 +9,7 @@ use Transportable\Transporter\Base\Transporter;
 abstract class Port implements Transports
 {
     /**
-     * @var Passenger
+     * @var Passenger|array
      */
     public $passenger;
 
@@ -17,12 +17,6 @@ abstract class Port implements Transports
      * @var Transporter
      */
     public $transporter;
-
-    public function __construct(Passenger $passenger, Transporter $transporter)
-    {
-        $this->passenger = $passenger;
-        $this->transporter = $transporter;
-    }
 
     public function inTransit()
     {
@@ -48,6 +42,9 @@ abstract class Port implements Transports
         return $this->transporter->sendToDestination($this->passenger);
     }
 
+    /**
+     * @return mixed
+     */
     public function transport()
     {
         $this->inTransit();

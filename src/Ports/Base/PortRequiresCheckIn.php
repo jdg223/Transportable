@@ -19,8 +19,10 @@ abstract class PortRequiresCheckIn extends Port implements RequiresCheckIn, Secu
     public function checkIn()
     {
         foreach ($this->passenger as $passengerLocation => $passenger) {
-            $this->runSecurityCheck($passenger);
-            $this->passenger[$passengerLocation] = $this->checkInPassenger($passenger);
+            //  If passenger passed security check.
+            if ($this->runSecurityCheck($passenger) === true) {
+                $this->passenger[$passengerLocation] = $this->checkInPassenger($passenger);
+            };
         }
     }
 
