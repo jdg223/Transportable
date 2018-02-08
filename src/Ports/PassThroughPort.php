@@ -10,6 +10,7 @@ class PassThroughPort extends Port
 {
     public function __construct(Passenger $passenger, Transporter $transporter)
     {
-        parent::__construct($passenger, $transporter);
+        $this->passenger = $passenger;
+        $this->transporter = $transporter;
     }
 }

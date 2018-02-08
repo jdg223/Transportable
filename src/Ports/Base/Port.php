@@ -9,7 +9,7 @@ use Transportable\Transporter\Base\Transporter;
 abstract class Port implements Transports
 {
     /**
-     * @var Passenger|array
+     * @var Passenger
      */
     public $passenger;
 
@@ -17,6 +17,12 @@ abstract class Port implements Transports
      * @var Transporter
      */
     public $transporter;
+
+    public function __construct(Passenger $passenger, Transporter $transporter)
+    {
+        $this->passenger = $passenger;
+        $this->transporter = $transporter;
+    }
 
     public function inTransit()
     {

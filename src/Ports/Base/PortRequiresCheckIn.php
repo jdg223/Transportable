@@ -22,7 +22,11 @@ abstract class PortRequiresCheckIn extends Port implements RequiresCheckIn, Secu
             //  If passenger passed security check.
             if ($this->runSecurityCheck($passenger) === true) {
                 $this->passenger[$passengerLocation] = $this->checkInPassenger($passenger);
-            };
+            } else {
+                // If passenger doesn't pass the security check they are not
+                // getting through.
+                unset($this->passenger[$passengerLocation]);
+            }
         }
     }
 
