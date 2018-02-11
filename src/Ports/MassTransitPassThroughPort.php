@@ -3,10 +3,10 @@
 namespace Transportable\Ports;
 
 use Transportable\Passengers\Base\Passenger;
-use Transportable\Ports\Base\Port;
 use Transportable\Transporter\Base\Transporter;
+use Transportable\Ports\Base\MassTransitPort;
 
-final class PassThroughPort extends Port
+final class MassTransitPassThroughPort extends MassTransitPort
 {
     public function __construct(Passenger $passenger, Transporter $transporter)
     {
