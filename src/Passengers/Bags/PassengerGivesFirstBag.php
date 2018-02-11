@@ -13,6 +13,6 @@ class PassengerGivesFirstBag extends PassengerHasBags
 
     public function arrive()
     {
-        return array_shift($this->bags);
+        return [array_shift($this->bags)];
     }
 }

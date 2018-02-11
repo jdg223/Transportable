@@ -13,6 +13,6 @@ class PassengerGivesLastBag extends PassengerHasBags
 
     public function arrive()
     {
-        return array_pop($this->bags);
+        return [array_pop($this->bags)];
     }
 }
