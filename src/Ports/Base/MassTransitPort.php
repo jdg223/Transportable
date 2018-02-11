@@ -23,7 +23,7 @@ abstract class MassTransitPort extends Port
 
     public function leave()
     {
-        $this->transporter->sendToDestination($this->currentPassenger);
+        return $this->transporter->sendToDestination($this->currentPassenger);
     }
 
     public function transport()
