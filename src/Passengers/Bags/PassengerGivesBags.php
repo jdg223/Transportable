@@ -2,6 +2,8 @@
 
 namespace Transportable\Passengers\Bags;
 
+use Transportable\Passengers\Base\PassengerHasBags;
+
 class PassengerGivesBags extends PassengerHasBags
 {
     public function __construct($bags)

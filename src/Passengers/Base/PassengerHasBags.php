@@ -1,9 +1,8 @@
 <?php
 
-namespace Transportable\Passengers\Bags;
+namespace Transportable\Passengers\Base;
 
 use Transportable\Passengers\Contracts\HasBaggage;
-use Transportable\Passengers\Base\Passenger;
 
 abstract class PassengerHasBags extends Passenger implements HasBaggage
 {
